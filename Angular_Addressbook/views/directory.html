@@ -1,0 +1,27 @@
+<div class="content">
+
+    <button ng-click="order = 'name'">Order by name</button>
+    <button ng-click="order = 'city'">Order by city</button>
+    <input type="text" ng-model="search" />
+    <ul id="name-ls">
+        
+    <li ng-repeat="n in names | orderBy: order |filter: search"><h3>{{n.name|uppercase}} - {{n.city|uppercase}}
+        </h3>
+        <img  class="round" ng-src="{{n.thumb}}" style="margin: -12px 10px 0 0; float: left; width:50px;" ng-show="n.thumb">
+        
+        <div class="remove" ng-click="removeName(n)">X</div>
+        
+    <span style="background: [{n.Nationality}]" >{{n.Nationality}}</span>
+        </li>
+    
+    </ul>
+    <form ng-submit="addContact()">
+        <input type="text" placeholder="Name" ng-model="newcontact.name">
+        <input type="text" placeholder="Phone No" ng-model="newcontact.phn">
+        <input type="text" placeholder="City" ng-model="newcontact.city">
+        <input type="text" placeholder="Nationality" ng-model="newcontact.Nationality">
+        <input type="Submit" value="Add New Contact">
+        
+    </form>
+</div>
+        
